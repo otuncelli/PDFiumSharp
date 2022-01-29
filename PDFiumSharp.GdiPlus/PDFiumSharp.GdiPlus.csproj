@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netcoreapp3.1;net47</TargetFrameworks>
+		<AssemblyVersion>1.0.1.0</AssemblyVersion>
+		<AssemblyName>PDFiumSharp.GdiPlus</AssemblyName>
+		<Copyright>Copyright © Tobias Meyer 2017</Copyright>
+		<Platforms>AnyCPU;x64</Platforms>
+		<Product>PDFiumSharp.GdiPlus</Product>
+		<Version>1.0.1</Version>
+		<UseWindowsForms>true</UseWindowsForms>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\PDFiumSharp\PDFiumSharp.csproj" />
+	</ItemGroup>
+</Project>

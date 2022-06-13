@@ -1,40 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net47</TargetFrameworks>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-    <AssemblyVersion>1.0.1.0</AssemblyVersion>
-    <Copyright>Copyright © Tobias Meyer 2017</Copyright>
-    <Platforms>AnyCPU;x64</Platforms>
-    <Product>PDFiumSharp</Product>
-    <Version>1.0.1</Version>
-    <Description>C#/.NET Wrapper for the PDFium library. Add also a package for the native binaries (currently only PDFium.Windows is provided) or provide them (pdfium_x64.dll, pdfium_x86.dll) yourself.</Description>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard2.0\PDFiumSharp.xml</DocumentationFile>
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <DocumentationFile>bin\Release\netstandard2.0\PDFiumSharp.xml</DocumentationFile>
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="runtimes\**" />
-    <EmbeddedResource Remove="runtimes\**" />
-    <None Remove="runtimes\**" />
-  </ItemGroup>
-
+	<PropertyGroup>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<TargetFrameworks>netcoreapp3.1;net47</TargetFrameworks>
+		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+		<AssemblyVersion>1.0.1.0</AssemblyVersion>
+		<Copyright>Copyright © Tobias Meyer 2017</Copyright>
+		<Platforms>AnyCPU;x64</Platforms>
+		<Product>PDFiumSharp</Product>
+		<Version>1.0.1</Version>
+		<Description>C#/.NET Wrapper for the PDFium library. Add also a package for the native binaries (currently only PDFium.Windows is provided) or provide them (pdfium_x64.dll, pdfium_x86.dll) yourself.</Description>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DocumentationFile>bin\Release\netstandard2.0\PDFiumSharp.xml</DocumentationFile>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<DocumentationFile>bin\Release\netstandard2.0\PDFiumSharp.xml</DocumentationFile>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+	</PropertyGroup>
 	<ItemGroup>
 		<None Include="PDFium.g.cs">
 			<DesignTime>True</DesignTime>
@@ -42,39 +31,31 @@
 			<DependentUpon>PDFium.tt</DependentUpon>
 		</None>
 	</ItemGroup>
-
 	<ItemGroup>
+		<PackageReference Include="bblanchon.PDFium.Win32" Version="105.0.5117" IncludeAssets="all" />
 		<PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
 		<PackageReference Include="System.ValueTuple" Version="4.5.0" />
 	</ItemGroup>
-
-  <ItemGroup>
-		
-    <None Update="Types\FPDF_Typedefs.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>FPDF_Typedefs.g.cs</LastGenOutput>
-    </None>
-    <None Update="PDFium.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>PDFium.g.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="PDFium.g.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>PDFium.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Types\FPDF_Typedefs.g.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>FPDF_Typedefs.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
+	<ItemGroup>
+		<None Update="Types\FPDF_Typedefs.tt">
+			<Generator>TextTemplatingFileGenerator</Generator>
+			<LastGenOutput>FPDF_Typedefs.g.cs</LastGenOutput>
+		</None>
+		<None Update="PDFium.tt">
+			<Generator>TextTemplatingFileGenerator</Generator>
+			<LastGenOutput>PDFium.g.cs</LastGenOutput>
+		</None>
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Update="PDFium.g.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>PDFium.tt</DependentUpon>
+		</Compile>
+		<Compile Update="Types\FPDF_Typedefs.g.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>FPDF_Typedefs.tt</DependentUpon>
+		</Compile>
+	</ItemGroup>
 </Project>

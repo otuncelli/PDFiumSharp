@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-		<TargetFrameworks>netcoreapp3.1;net47</TargetFrameworks>
+      <TargetFrameworks>net8.0;net48</TargetFrameworks>
 		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 		<AssemblyVersion>1.0.1.0</AssemblyVersion>
 		<Copyright>Copyright © Tobias Meyer 2017</Copyright>
@@ -17,11 +17,11 @@
 		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-		<DocumentationFile>bin\Release\netstandard2.0\PDFiumSharp.xml</DocumentationFile>
+		<DocumentationFile>bin\Release\net8.0\PDFiumSharp.xml</DocumentationFile>
 		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-		<DocumentationFile>bin\Release\netstandard2.0\PDFiumSharp.xml</DocumentationFile>
+		<DocumentationFile>bin\Release\net8.0\PDFiumSharp.xml</DocumentationFile>
 		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 	</PropertyGroup>
 	<ItemGroup>
@@ -32,7 +32,7 @@
 		</None>
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="bblanchon.PDFium.Win32" Version="105.0.5117" IncludeAssets="all" />
+		<PackageReference Include="bblanchon.PDFium.Win32" Version="133.0.6844" IncludeAssets="all" />
 		<PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
 		<PackageReference Include="System.ValueTuple" Version="4.5.0" />
 	</ItemGroup>
